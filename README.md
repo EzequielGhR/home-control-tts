@@ -2,20 +2,20 @@
 Some files for home control automation using tts for google home
 
 # How to
-The instructions assumes you're using Linux sorry about that but Ubuntu is my sauce.
+The instructions assumes you're using Linux, sorry about that but Ubuntu is my sauce.
 
 - Create a directory for your files for example `mkdir ~/.home_control`
-- Put `home_control.sh` and `tts_scripts` in said directory. In my case `cp -t ~/.home_control home_control.sh tts_script.py`
+- Put `home_control.sh` and `tts_scripts.py` in said directory. In my case `cp -t ~/.home_control home_control.sh tts_script.py`
 - You'll need to install some things:
     - pyaudio: `sudo apt install python3-pyaudio`
     - espeak: `sudo apt install espeak`
     - espeak-ng: `sudo apt install espeak-ng`
-    - mbrola: sudo `apt-get install mbrola`
+    - mbrola: `sudo apt-get install mbrola`
     - mbrola voices: `sudo apt install mbrola-*`
 - python requirements:
     I suggest using the env provided `.hcenv` with `source .hcenv/bin/activate`, but if you want to use your own you should be able as follows:
-    - `python -m venv .hcenv`
-    - `source {your_env_name}/bin/activate`
+    - `python -m venv .hcenv` (if you change your env name be sure to change `ENV_NAME` on `home_control.sh`)
+    - `source .hcenv/bin/activate`
     - `pip install pyttsx==2.91 deep-translator==1.11.4`
     - If you get issues with setProperty on pyttsx3 you should install form source:
         - clone the source repo: `git clone https://github.com/nateshmbhat/pyttsx3.git`
@@ -26,7 +26,7 @@ The instructions assumes you're using Linux sorry about that but Ubuntu is my sa
     - Add the line at the end to load your scripts. In my case: `source ~/.home_control/home_control.sh`
     - Save and close. In nano Ctrl+S and then Ctrl+X.
     - Reload session `source ~/.bashrc`
-- You should be able to run the commands (functions inside home_control.sh)
+- You should be able to run the commands (functions inside `home_control.sh`)
 
 # Commands
 Documentation in progress lol. But some examples:
@@ -45,4 +45,8 @@ Documentation in progress lol. But some examples:
     - `hc-music -s "Into your arms" -b "The maine"`: TTS to play Into your arms by The Maine.
     - `hc-music -s "vienes y te vas" -b "La base" -l es`: TTS to play vienes y te vas by la base. The flag -l is the speech language, since this son is in spanish makes sense to ask in spanish, hence the "es" arg.
 
-
+# Next steps:
+- I would like to add a voice chat with AI, need to check princing and options. A good start could be translate using Google Translate, after all it's already implemented in the music calls.
+- If I could find a way to better tune the voices or get better ones for espeak it would be amazing cause google home doesn't understand all the time even being careful with commas and quotes.
+- I would like to implement some presets on each function
+- Maybe reading my unread emails could be also useful

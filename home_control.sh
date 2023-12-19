@@ -2,6 +2,8 @@
 parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 cd "$parent_path"
 
+ENV_PATH = ".hcenv/bin/activate"
+
 function hc-lights() {
     all=false
     while [ "${1:-}" != "" ]; do
@@ -20,7 +22,7 @@ function hc-lights() {
         esac
         shift
     done;
-    source .hcenv/bin/activate
+    source $ENV_PATH
     if [ $all == true ]; then
         echo "all lights $status"
         python -m tts_script --all True --status $status --identifier ""
@@ -55,7 +57,7 @@ function hc-lights-intensity() {
         esac
         shift
     done;
-    source .hcenv/bin/activate
+    source $ENV_PATH
     if [ $all == true ]; then
         echo "all lights $color at $value %"
         python -m tts_script --all True --color $color --value $value --identifier ""
@@ -87,7 +89,7 @@ function hc-music() {
         esac
         shift
     done;
-    source .hcenv/bin/activate
+    source $ENV_PATH
     python -m tts_script --song "${song}" --band "${band}" --language "${language}"
     deactivate
 }

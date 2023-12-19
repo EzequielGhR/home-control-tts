@@ -20,10 +20,10 @@ def turn_on_off(status:str, engine:pyttsx3.Engine, ids:list, all_:bool=True) -> 
         if all_:
             engine.say(f"Please turn {status} the lights")
         else:
-            phrase = f"Please turn {status} the {ids.pop(0)} light"
+            phrase = f"Please turn {status} the '{ids.pop(0)}' light"
             for id_ in ids:
                 phrase = phrase.rsplit("light")[0]
-                phrase += f"and the {id_} lights"
+                phrase += f"and the '{id_}' lights"
             engine.say(phrase)
         engine.runAndWait()
 
