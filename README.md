@@ -13,7 +13,6 @@ The instructions assumes you're using Linux, sorry about that but Ubuntu is my s
     - mbrola: `sudo apt-get install mbrola`
     - mbrola voices: `sudo apt install mbrola-*`
 - python requirements:
-    I suggest using the env provided `.hcenv` with `source .hcenv/bin/activate`, but if you want to use your own you should be able as follows:
     - `python -m venv .hcenv` (if you change your env name be sure to change `ENV_NAME` on `home_control.sh`)
     - `source .hcenv/bin/activate`
     - `pip install pyttsx==2.91 deep-translator==1.11.4`

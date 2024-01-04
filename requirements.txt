@@ -1,0 +1,2 @@
+pyttsx3==2.91
+deep-translator==1.11.4
